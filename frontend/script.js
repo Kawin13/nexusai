@@ -10,13 +10,13 @@
    2. Localhost detection     — dev mode
    3. Production Render URL   — change PROD_API_URL below
    ──────────────────────────────────────────────────────── */
-const PROD_API_URL = 'https://nexusai-backend.onrender.com'; // ← Update with your Render URL
+const PROD_API_URL = 'https://nexusai-1-pm2x.onrender.com'; // ← Update with your Render URL
 
 function resolveApiBase() {
   if (window.NEXUSAI_API_URL) return window.NEXUSAI_API_URL;
   const host = window.location.hostname;
   if (host === 'localhost' || host === '127.0.0.1' || host === '') {
-    return 'http://localhost:5000';
+    return 'https://nexusai-1-pm2x.onrender.com';
   }
   return PROD_API_URL;
 }
@@ -616,3 +616,5 @@ function escapeHtml(str) {
   const map = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' };
   return String(str).replace(/[&<>"']/g, c => map[c]);
 }
+
+
