@@ -1,0 +1,16 @@
+# NexusAI — Production Requirements
+# RAM < 300 MB  |  Startup < 5 s  |  No model downloads
+
+# ── Web framework ─────────────────────────────────────────
+flask>=3.0.0
+flask-cors>=4.0.0
+gunicorn>=21.2.0
+
+# ── Environment & HTTP ────────────────────────────────────
+python-dotenv>=1.0.0
+requests>=2.31.0
+
+# ── NLP / ML (lightweight) ────────────────────────────────
+scikit-learn>=1.4.0
+numpy>=1.26.0
+nltk>=3.8.1
