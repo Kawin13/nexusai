@@ -1,5 +1,11 @@
+<<<<<<< HEAD
 # NexusAI — Production Requirements
 # RAM < 300 MB  |  Startup < 5 s  |  No model downloads
+=======
+# NexusAI — Lightweight Requirements
+# Replaces: torch, transformers, sentence-transformers, CUDA
+# RAM target: < 300 MB   |   Startup: < 5 s   |   No model downloads
+>>>>>>> 620a652603ef6c712cc5299273727a2810800897
 
 # ── Web framework ─────────────────────────────────────────
 flask>=3.0.0
