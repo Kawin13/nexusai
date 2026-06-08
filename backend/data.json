@@ -5840,7 +5840,6 @@
   {
     "id": 390,
     "question": "What is a merge conflict?",
-    "answer": "A Git merge conflict occurs when two branches modify the same line of a file or one branch deletes a file modified in the other. Git cannot automatically determine which change should take precedence. Conflict markers (<<<<<<<, =======, >>>>>>>) show both versions. Resolution: manually edit the file, mark resolved (git add), and complete the merge (git commit). VS Code and other IDEs help resolve conflicts visually.",
     "topic": "Git & GitHub",
     "keywords": [
       "git conflict",

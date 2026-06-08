@@ -6,7 +6,6 @@
 
 /* ── API Configuration ──────────────────────────────────────
    Priority:
-<<<<<<< HEAD
    1. window.NEXUSAI_API_URL  — explicit build-time override
    2. Localhost detection     — dev mode (localhost / 127.0.0.1)
    3. Production Render URL   — GitHub Pages / any other host
@@ -22,7 +21,6 @@ function resolveApiBase() {
   const host = window.location.hostname;
   if (host === 'localhost' || host === '127.0.0.1') {
     return LOCAL_API_URL;
-=======
    1. window.NEXUSAI_API_URL  — injected by build/deployment
    2. Localhost detection     — dev mode
    3. Production Render URL   — change PROD_API_URL below
@@ -34,14 +32,12 @@ function resolveApiBase() {
   const host = window.location.hostname;
   if (host === 'localhost' || host === '127.0.0.1' || host === '') {
     return 'https://nexusai-1-pm2x.onrender.com';
->>>>>>> 620a652603ef6c712cc5299273727a2810800897
   }
   return PROD_API_URL;
 }
 
 const API_BASE = resolveApiBase();
 
-<<<<<<< HEAD
 /* ── Fetch wrapper: timeout + abort ─────────────────────── */
 async function apiFetch(path, options = {}) {
   const controller = new AbortController();
@@ -56,8 +52,6 @@ async function apiFetch(path, options = {}) {
   }
 }
 
-=======
->>>>>>> 620a652603ef6c712cc5299273727a2810800897
 /* ── Suggestion Cards ── */
 const SUGGESTIONS = [
   { icon: '🤖', text: 'What is Artificial Intelligence?' },
@@ -133,11 +127,8 @@ function buildSuggestions() {
    ═══════════════════════════════ */
 async function loadTopics() {
   try {
-<<<<<<< HEAD
     const res = await apiFetch('/topics');
-=======
     const res = await fetch(`${API_BASE}/topics`);
->>>>>>> 620a652603ef6c712cc5299273727a2810800897
     if (!res.ok) throw new Error('Failed to load topics');
     const data = await res.json();
 
@@ -175,11 +166,8 @@ async function loadTopics() {
    ═══════════════════════════════ */
 async function checkHealth() {
   try {
-<<<<<<< HEAD
     const res = await apiFetch('/health');
-=======
     const res = await fetch(`${API_BASE}/health`, { signal: AbortSignal.timeout(5000) });
->>>>>>> 620a652603ef6c712cc5299273727a2810800897
     if (res.ok) {
       setStatus('online', 'Online');
     } else {
@@ -243,11 +231,8 @@ async function sendMessage(text) {
   sendBtn.disabled = true;
 
   try {
-<<<<<<< HEAD
     const res = await apiFetch('/chat', {
-=======
     const res = await fetch(`${API_BASE}/chat`, {
->>>>>>> 620a652603ef6c712cc5299273727a2810800897
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ message: text }),
@@ -260,7 +245,6 @@ async function sendMessage(text) {
 
   } catch (err) {
     removeTypingIndicator(typingId);
-<<<<<<< HEAD
     const isTimeout = err.isTimeout;
     const msg = isTimeout
       ? '⏱️ The server took too long to respond. The Render backend may be waking up from sleep — please wait 20 seconds and try again.'
@@ -268,11 +252,9 @@ async function sendMessage(text) {
     appendBotMessage({
       answer: msg,
       topic: isTimeout ? 'Timeout' : 'Connection Error',
-=======
     appendBotMessage({
       answer: `⚠️ Could not connect to the NexusAI server.\n\nTo run locally:\n  cd backend\n  python app.py\n\nOr deploy to Render — see README for instructions.`,
       topic: 'Connection Error',
->>>>>>> 620a652603ef6c712cc5299273727a2810800897
       confidence: 0,
       source: 'error',
     });
@@ -673,8 +655,5 @@ function escapeHtml(str) {
   const map = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' };
   return String(str).replace(/[&<>"']/g, c => map[c]);
 }
-<<<<<<< HEAD
-=======
 
 
->>>>>>> 620a652603ef6c712cc5299273727a2810800897

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # NexusAI — Technical FAQ Chatbot
 
 A lightweight, production-ready chatbot with 537 FAQ answers across 15 topics:
@@ -125,7 +124,5 @@ curl -X POST https://nexusai-1-pm2x.onrender.com/chat \
 | Query latency | ~2 ms (cached: 0 ms) |
 | Dependencies | 7 packages |
 | Model downloads | None |
-=======
 # nexusai
 NexusAI is an intelligent technical assistant built with Flask and Sentence Transformers, leveraging hybrid search techniques to provide precise answers from a knowledge base of 500+ FAQs covering AI, Cloud, DevOps, Databases, Cybersecurity, and Software Engineering.
->>>>>>> 620a652603ef6c712cc5299273727a2810800897
