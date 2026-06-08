@@ -27,7 +27,6 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 app = Flask(__name__)
-<<<<<<< HEAD
 # ── CORS — explicit allowed origins ───────────────────────
 _DEFAULT_ORIGINS = ",".join([
     "https://kawin13.github.io",
@@ -47,9 +46,7 @@ CORS(
     allow_headers=["Content-Type", "Authorization"],
     methods=["GET", "POST", "OPTIONS"],
 )
-=======
 CORS(app, origins=os.getenv("CORS_ORIGINS", "*"))
->>>>>>> 620a652603ef6c712cc5299273727a2810800897
 
 # ── Config ─────────────────────────────────────────────────
 GEMINI_API_KEY       = os.getenv("GEMINI_API_KEY", "")
@@ -146,7 +143,6 @@ def _ai_fallback(question: str) -> dict | None:
 
 # ── Routes ─────────────────────────────────────────────────
 
-<<<<<<< HEAD
 @app.after_request
 def add_cors_headers(response):
     """Ensure CORS headers are present on every response, including errors."""
@@ -164,18 +160,13 @@ def handle_preflight(path):
     """Respond to CORS pre-flight requests."""
     return "", 204
 
-=======
->>>>>>> 620a652603ef6c712cc5299273727a2810800897
 @app.route("/", methods=["GET"])
 def index():
     s = engine.stats()
     return jsonify({
         "name":            "NexusAI FAQ Chatbot API",
-<<<<<<< HEAD
         "version":         "2.3.0",
-=======
         "version":         "2.2.0",
->>>>>>> 620a652603ef6c712cc5299273727a2810800897
         "status":          "online",
         "faqs":            s["total_faqs"],
         "semantic_search": s["semantic_enabled"],
