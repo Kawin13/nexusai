@@ -1143,3 +1143,31 @@ input:checked + .slider::before {
     animation: fadeIn 0.2s ease;
   }
 }
+
+/* ── Production / Mobile Enhancements ──────────────────────
+   Added for GitHub Pages / Netlify / Vercel / Render deploy  */
+
+/* Smooth scroll for messages */
+.messages-container {
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+}
+
+/* Prevent double-tap zoom on buttons (mobile) */
+button, .suggestion-card, .topic-item, .alt-item {
+  touch-action: manipulation;
+}
+
+/* iOS safe-area support (notch / home indicator) */
+.input-area {
+  padding-bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+}
+.sidebar {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+/* Prevent iOS text size adjustment on rotate */
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
